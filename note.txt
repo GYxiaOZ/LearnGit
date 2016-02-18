@@ -45,6 +45,23 @@ ssh-keygen -t rsa -C "420628272@qq.com"		创建一个ssh密钥
 		运行过上面命令后,直接将本地内容推送到github
 	克隆:
 		git clone https://......
+	git fetch:
+		相当于是从远程获取最新版本到本地，不会自动merge
+			git fetch origin master
+			git log -p master..origin/master
+			git merge origin/master
+			首先从远程的origin的master主分支下载最新的版本到origin/master分支上
+			然后比较本地的master分支和origin/master分支的差别
+			最后进行合并
+			git fetch origin master:tmp
+			git diff tmp 
+			git merge tmp
+			从远程获取最新的版本到本地的test分支上
+			之后再进行比较合并
+	git pull：
+		相当于是从远程获取最新版本并merge到本地
+			git pull origin master
+			上述命令其实相当于git fetch 和 git merge
 分支:
 	git branch xxx
 		创建分支
